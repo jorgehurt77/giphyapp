@@ -35,9 +35,20 @@ $(document).on('click','.searchButton',function(){
                 image.addClass('searchImage');
                 searchDiv.append(p);
                 searchDiv.append(image);
-                $('searches').append(searchDiv);
+                $('#searches').append(searchDiv);
             }
     })
+})
+
+$(document).on('click','.searchImage',function(){
+    var state = $(this).attr('data-state');
+    if(state == 'still'){
+        $(this).attr('src', $(this).data('animated'));
+        $(this).attr('data-state','animated');
+    } else {
+        $(this).attr('src',$(this).data('still'));
+        $(this).attr('data-state','still');
+    }
 })
 
 $('#addSearch').on('click',function(){
